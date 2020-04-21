@@ -15,10 +15,11 @@ public class MergeSort {
         int mid = (l + r) / 2;
         sortInternal(arr, l, mid);
         sortInternal(arr, mid + 1, r);
-        merge(arr, l, mid, r);
+        if (arr[mid] > arr[mid + 1])
+            merge(arr, l, mid, r);
     }
 
-    private static void merge(int[] arr, int l, int mid, int r) {
+    public static void merge(int[] arr, int l, int mid, int r) {
         int[] aux = Arrays.copyOfRange(arr, l, r + 1);
         int i = l;
         int j = mid + 1;
